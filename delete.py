@@ -15,13 +15,15 @@ def delete_str(data, task_del):
         for line in file:
             if i != task_del: 
                 temp_list.append(line)
-                i += 1
+                
             else:
                 log_case.add_logg_str(line[:len(line)-2], "удаление") #логгируем
+            i += 1
 
 
-        for tsk in temp_list:
-            with open(data, "w", encoding = 'utf8') as file:
+        
+        with open(data, "w", encoding = 'utf8') as file:
+            for tsk in temp_list:
                 file.write(tsk)
 
 
